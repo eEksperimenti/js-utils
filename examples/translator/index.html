@@ -733,7 +733,7 @@
     params.original.time_units = params.local.time_units = new_params.time_units;
 
     var timeu_lbl = (params.original.time_units == 0 ? 'μs' : (params.original.time_units == 1 ? 'ms' : 's'));
-    $('#xtitle').text('Time [ ' + timeu_lbl + ' ]');
+    $('#xtitle').text('Time [ ' + timeu_lbl + ' ]').trigger('translate');
   }
   
   function isParamChanged() {
