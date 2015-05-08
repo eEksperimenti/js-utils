@@ -14,6 +14,9 @@ JavaScript utilities
 2. Include the `translator.js` file into the head section of your html document after the jQuery script, e.g.
 
   ```html
+  <script src="../assets/bootstrap-3.0.0/js/jquery.js"></script>
+  <script src="../assets/bootstrap-3.0.0/js/bootstrap.min.js"></script>
+  
   <script src="translator.js"></script>
   ```
 3. Language is initially choosen by reading URL's hash value, e.g.
