@@ -482,9 +482,10 @@
         var arun_after_ajax = autorun;
         
         datasets = [];
+        var t_channel=$('#t-channel').text();
         for(var i=0; i<dresult.datasets.g1.length; i++) {
           dresult.datasets.g1[i].color = i;
-          dresult.datasets.g1[i].label = 'Channel ' + (i+1);          
+          dresult.datasets.g1[i].label = t_channel+' ' + (i+1);          
           datasets.push(dresult.datasets.g1[i]);
         }
         
@@ -1489,6 +1490,7 @@
   <script src="translator.js"></script>
 </head>
 <body>
+  <span id='t-channel' style='display: none'>Channel</span>
   <div class="header">
     <div class="container">
       <a id="btn_exit" class="pull-left" href="/index.html"><span class="glyphicon glyphicon-chevron-left" title="Exit" alt="Exit"></span></a>
