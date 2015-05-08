@@ -7,19 +7,23 @@ $( document ).ready(function() {
      {'sl':'izvoz','en':'export'}
     ];
     ///////////////////////////////////////////////////
-    
-    var language = location.hash.substr(1);
-    if (language===undefined || language=='') language=baseLanguage;
-    
-        $('body *').contents().filter(function() { 
-            if (this.nodeType == 3)
-            {
-                for (var i=0;i<translations.length;++i)
+    function translator(fromLang,toLang)
+    {
+        if (toLang===undefined || toLang=='') toLang=baseLanguage;
+        if (fromLang===undefined || fromLang=='') fromLang=baseLanguage;
+        
+            $('body *').contents().filter(function() { 
+                if (this.nodeType == 3)
                 {
-                    if (this.nodeValue==translations[i][baseLanguage]) {
-                        this.nodeValue=translations[i][language];
+                    for (var i=0;i<translations.length;++i)
+                    {
+                        if (this.nodeValue==translations[i][fromLang]) {
+                            this.nodeValue=translations[i][toLang];
+                        }
                     }
                 }
-            }
-        });
+            });
+    }
+    translator(baseLanguage,location.hash.substr(1));
+    $('.translate').click(function(){translator(location.hash.substr(1),$(this).attr('href').substr(1))});
 });
