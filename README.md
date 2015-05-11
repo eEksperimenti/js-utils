@@ -33,3 +33,6 @@ JavaScript utilities
   <a href='#sl' class='translate'>sl</a>
   <a href='#en' class='translate'>en</a>
   ```
+## Prilagoditve za slepe in slabovidne
+
+Uporabljamo [Bootstrap accessibility plugin](https://www.paypal-engineering.com/2014/01/28/bootstrap-accessibility-plugin-making-the-popular-web-development-framework-better/)
