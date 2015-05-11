@@ -33,6 +33,7 @@ JavaScript utilities
   <a href='#sl' class='translate'>sl</a>
   <a href='#en' class='translate'>en</a>
   ```
+
 ## Prilagoditve za slepe in slabovidne
 
-Uporabljamo [Bootstrap accessibility plugin](https://www.paypal-engineering.com/2014/01/28/bootstrap-accessibility-plugin-making-the-popular-web-development-framework-better/)
+Če kontrole še nimajo ustreznih oznak lahko uporabljamo [Paypal bootstrap accessibility plugin](https://www.paypal-engineering.com/2014/01/28/bootstrap-accessibility-plugin-making-the-popular-web-development-framework-better/), sicer pa so primeri na [bootstrap strani](http://getbootstrap.com/) večinoma že z [ARIA](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA) oznakami.
