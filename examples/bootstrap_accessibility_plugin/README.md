@@ -1,4 +1,4 @@
-Če imamo na strani npr. spodnji `html`:
+Če imamo npr. spodnji `html`:
 ```html
 <div class="panel-group" id="accordion">
   <div class="panel panel-default">
@@ -17,7 +17,7 @@
   </div>
 </div>
 ```
-in želimo, da `paypal bootstrap accessibility plugin` na HTML elemente doda ARIA atribute, moramo v datoteko dodati:
+in želimo, da `paypal bootstrap accessibility plugin` na `HTML` elemente doda `ARIA` atribute, moramo v datoteko dodati:
 ```html
   <link rel="stylesheet" href="bootstrap-accessibility_1.0.3.css">
 ```
@@ -25,7 +25,7 @@ in
 ```html
 <script src="bootstrap-accessibility_1.0.3.min.js"></script>
 ```
-**Slednji mora biti dodan v na konec `<body>` elementa HTML in ne v `<head>`.**
+**Slednji mora biti dodan na konec `<body>` elementa HTML in ne v `<head>`.**
 
 Plugin spremeni zgornji `HTML` v:
 ```html
@@ -46,5 +46,3 @@ Plugin spremeni zgornji `HTML` v:
   </div>
 </div>
 ```
-```
-
