@@ -36,8 +36,8 @@ JavaScript utilities
 
 ## Prilagoditve za slepe in slabovidne
 
-Če kontrole še nimajo ustreznih oznak lahko uporabljamo [Paypal bootstrap accessibility plugin](https://www.paypal-engineering.com/2014/01/28/bootstrap-accessibility-plugin-making-the-popular-web-development-framework-better/), sicer pa so primeri na [bootstrap strani](http://getbootstrap.com/) večinoma že z [ARIA](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA) oznakami.
+Če kontrole še nimajo ustreznih oznak lahko uporabljamo [Paypal bootstrap accessibility plugin](https://www.paypal-engineering.com/2014/01/28/bootstrap-accessibility-plugin-making-the-popular-web-development-framework-better/), primer uporabe: https://github.com/eEksperimenti/js-utils/tree/master/examples/bootstrap_accessibility_plugin, sicer pa so primeri na [bootstrap strani](http://getbootstrap.com/) večinoma že z [`ARIA`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA) oznakami.
 
 ## beep.js
 
-Doda zvok, ko se pritisne element <button/>.
+Doda zvok, ko pritisnemo element `<button/>`. Uporabljamo tako, da v datoteko `HTML` vključimo datoteko [beep.js](https://github.com/eEksperimenti/js-utils/blob/master/beep.js)
