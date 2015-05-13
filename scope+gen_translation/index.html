@@ -938,7 +938,7 @@
     } 
     
     params.original.time_units = params.local.time_units = new_params.time_units;
-    var timeu_lbl = (params.original.time_units == 0 ? 'µs' : (params.original.time_units == 1 ? 'ms' : 's'));
+    var timeu_lbl = (params.original.time_units == 0 ? 'μs' : (params.original.time_units == 1 ? 'ms' : 's'));
     $('#xtitle').text(  'Time [ ' + timeu_lbl + ' ]').trigger('translate');
   }
   
@@ -1498,7 +1498,7 @@
   }
   
   function updateRanges() {
-    var xunit = (params.local.time_units == 0 ? 'µs' : (params.local.time_units == 1 ? 'ms' : 's'));
+    var xunit = (params.local.time_units == 0 ? 'μs' : (params.local.time_units == 1 ? 'ms' : 's'));
     var yunit = 'V';
     var axes = plot.getAxes();
     var xrange = axes.xaxis.max - axes.xaxis.min;
@@ -1509,14 +1509,14 @@
     var xminrange = 20e-9; // seconds
     var decimals = 0;
 
-    if(xunit == 'µs' && xrange < 1) {
+    if(xunit == 'μs' && xrange < 1) {
       xrange *= 1000;
       xunit = 'ns';
     }
     if(xrange < 1) {
       decimals = 1;
     }
-    var seconds = (xunit == 'ns' ? 1e-9 : ( xunit == 'µs' ? 1e-6 : (xunit == 'ms' ? 1e-3 : 1)));
+    var seconds = (xunit == 'ns' ? 1e-9 : ( xunit == 'μs' ? 1e-6 : (xunit == 'ms' ? 1e-3 : 1)));
     
     if(yrange < 1) {
       yunit = 'mV';
@@ -1762,7 +1762,7 @@
     }
     else if(value < 1e-3) {
       value *= 1e6;
-      unit = '<span class="unit">µs</span>';
+      unit = '<span class="unit">μs</span>';
     }
     else if(value < 1) {
       value *= 1e3
@@ -1804,8 +1804,12 @@
 	<a href='#sl' class='translate' >sl</a>
 	<a href='#en' class='translate' >en</a>
       <div id="btn_toolbar" class="col-xs-12">
-        
-        
+        <button id="btn_autoscale_y" class="btn btn-primary btn-lg" data-autozoom="false" onclick="autoscaleY()">
+          <span class="glyphicon glyphicon-resize-vertical"></span> Autoscale
+        </button>
+        <button class="btn btn-primary btn-lg" onclick="resetZoom()">
+          <span class="glyphicon glyphicon-retweet"></span> Reset zoom
+        </button>  
         <div id="selzoompan" class="btn-group" data-toggle="buttons">
           <button id="btn_zoomin" class="btn btn-primary" onclick="selectTool.call(this, 'zoomin')" style="display: none">
             <span class="glyphicon glyphicon-zoom-in"></span>
@@ -1822,9 +1826,8 @@
         </div>
         <button id="btn_ch1" class="btn btn-primary btn-lg" data-checked="true" onclick="setVisibleChannels(this)">Channel 1</button>
         <button id="btn_ch2" class="btn btn-primary btn-lg" data-checked="true" onclick="setVisibleChannels(this)">Channel 2</button>
-        
-        <!-- <button id="btn_avg" class="btn btn-default btn-lg" onclick="setAvgAtDec()">Averaging</button>
-		-->
+        <button id="btn_auto" class="btn btn-primary btn-lg" onclick="serverAutoScale()">AUTO</button>
+        <button id="btn_avg" class="btn btn-default btn-lg" onclick="setAvgAtDec()">Averaging</button>
       </div>
     </div>
     <div class="row">
@@ -1841,43 +1844,6 @@
         </div>
       </div>
       <div class="panel-group col-xs-12 col-sm-12 col-md-4" id="accordion">
-		<div class="panel panel-default">
-          <div class="panel-heading">
-            <h4 class="panel-title">
-              <a data-toggle="collapse" href="#autoscale">
-                Autoscale
-              </a>
-            </h4>
-          </div>
-          <div  id="autoscale"  class="panel-collapse collapse"> 
-            <div class="panel-body">
-					
-					<div class="row">
-						
-							
-								<button id="btn_autoscale_y" class="btn btn-primary btn-lg" data-autozoom="false" onclick="autoscaleY()">
-									<span class="glyphicon glyphicon-resize-vertical"></span> Autoscale
-								</button>
-							
-					</div>
-					
-					 <div class="row"> 
-						
-							<button class="btn btn-primary btn-lg" onclick="resetZoom()">
-								<span class="glyphicon glyphicon-retweet"></span> Reset zoom
-							</button>  
-					
-					 </div> 
-					  
-					  <div class="row"> 
-						
-							<button id="btn_auto" class="btn btn-primary btn-lg" align="left" onclick="serverAutoScale()">AUTO</button>
-						
-					  </div>
-				  
-			</div>
-          </div>
-        </div>
         <div class="panel panel-default">
           <div class="panel-heading">
             <h4 class="panel-title">
@@ -1952,7 +1918,7 @@
             <div class="panel-body">
               <form class="form-horizontal" role="form" onsubmit="return false;">
                 <div class="form-group">
-                  <label class="col-xs-4 col-sm-3 control-label" style="padding-top: 35px;">Range :</label>
+                  <label class="col-xs-4 col-sm-3 control-label" style="padding-top: 35px;">Range:</label>
                   <div class="col-xs-8 col-sm-9">
                     <div class="row">
                       <div class="col-xs-6 text-center">
