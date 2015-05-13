@@ -13,7 +13,7 @@
     <a href='#sl' class='translate'>sl</a>
     <a href='#en' class='translate'>en</a>
   ```
-5. Večina napisov se avtomatsko prevede, izjema so napisi, ki so "zapečeni" v JavaScriptu. Te lahko (s translator.js) prevedemo na dva načina:
+5. <a name="java_script_translate"></a>Večina napisov se avtomatsko prevede, izjema so napisi, ki so "zapečeni" v JavaScriptu. Te lahko (s translator.js) prevedemo na dva načina:
 
 * [s proženjem funkcije translate na izbranem elementu] (https://github.com/eEksperimenti/js-utils/commit/90b5ccdda2c6a4f74a636ede1be4ee835eb5b18e):
   
