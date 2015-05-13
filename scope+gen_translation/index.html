@@ -27,7 +27,6 @@
   <script src="../assets/flot/jquery.flot.resize.min.js"></script>
   <script src="../assets/flot/jquery.flot.touch.js?2"></script>
   <script src="translator.js"></script>
-  <script> translator(baseLanguage,location.hash.substr(1));</script>
   <script type="text/javascript">
   
   // Settings which can be modified
@@ -583,7 +582,7 @@
   });
   
   function startApp() {
-	//****************translator();
+	
     $.get(
       start_app_url
     )
@@ -671,9 +670,10 @@
         var arun_after_ajax = autorun;
         
         datasets = [];
+		var t_channel=$('#t-channel').text();
         for(var i=0; i<dresult.datasets.g1.length; i++) {
           dresult.datasets.g1[i].color = i;
-          dresult.datasets.g1[i].label = 'Channel ' + (i+1);          
+          dresult.datasets.g1[i].label = t_channel + (i+1);          
           datasets.push(dresult.datasets.g1[i]);
         }
         
@@ -938,10 +938,8 @@
     } 
     
     params.original.time_units = params.local.time_units = new_params.time_units;
-	var time = 'Time';
-	//TO-DO translate time to a different laguage
     var timeu_lbl = (params.original.time_units == 0 ? 'μs' : (params.original.time_units == 1 ? 'ms' : 's'));
-    $('#xtitle').text( time + ' [ ' + timeu_lbl + ' ]');
+    $('#xtitle').text(  'Time [ ' + timeu_lbl + ' ]').trigger('translate');
   }
   
   function isParamChanged() {
@@ -1842,6 +1840,7 @@
           </div>
           <div id="plot_holder"></div>
           <div id="xtitle"></div>
+		  <span id='t-channel' style='display: none'>Channel</span>
         </div>
       </div>
       <div class="panel-group col-xs-12 col-sm-12 col-md-4" id="accordion">
